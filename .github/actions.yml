@@ -1,0 +1,24 @@
+name: sample-xcode-actions
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_11.7.app
+  
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Show Xcode Version 
+        run: xcodebuild -version 
+
+      - name: Build project 
+        run: xcodebuild -project Sample_XcodeActions.xcodeproj -target Sample_XcodeActions -sdk iphonesimulator -configuration Debug buildname: sample-xcode-actions
+
+
