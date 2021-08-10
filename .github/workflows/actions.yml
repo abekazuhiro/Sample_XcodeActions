@@ -21,4 +21,6 @@ jobs:
       - name: Build project 
         run: xcodebuild -project Sample_XcodeActions.xcodeproj -target Sample_XcodeActions -sdk iphonesimulator -configuration Debug build
 
+      - name: Run XCTest 
+        run: xcodebuild -project Sample_XcodeActions.xcodeproj -scheme Sample_XcodeActions -destination OS=12.1,name="iPhone X" -configuration Debug build test
 
